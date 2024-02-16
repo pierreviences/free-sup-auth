@@ -9,3 +9,10 @@ const registerSchema = vine.object({
 });
 
 export const registerValidator = vine.compile(registerSchema);
+
+const loginSchema = vine.object({
+  email: vine.string().email(),
+  password: vine.string(),
+});
+
+export const LoginValidator = vine.compile(loginSchema);
