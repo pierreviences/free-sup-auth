@@ -14,7 +14,7 @@ export async function registerAction(formdata: FormData) {
     console.log("The form data is", payload);
   } catch (error) {
     if (error instanceof errors.E_VALIDATION_ERROR) {
-      console.log(error.messages);
+      return { status: 400, errors: error.messages };
     }
   }
 }

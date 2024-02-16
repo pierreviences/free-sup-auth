@@ -11,6 +11,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { registerAction } from "@/actions/authActions";
+import { useFormState } from "react-dom";
 const iniState = {
   status: 0,
   error: {},

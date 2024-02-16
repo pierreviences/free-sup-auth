@@ -1,5 +1,6 @@
 import vine from "@vinejs/vine";
-
+import { CustomErrorReporter } from "./customErrorReporter";
+vine.errorReporter = () => new CustomErrorReporter();
 const registerSchema = vine.object({
   name: vine.string().minLength(2).maxLength(150),
   username: vine.string().minLength(2).maxLength(150),
