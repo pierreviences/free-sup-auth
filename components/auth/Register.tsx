@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { registerAction } from "@/actions/authActions";
 import { useFormState } from "react-dom";
+import AuthSubmitBtn from "./AuthSubmitBtn";
 const initState = {
   status: 0,
   errors: {},
@@ -79,7 +80,7 @@ function Register() {
                 placeholder="Confirm your password."
               />
             </div>
-            <Button className="w-full mt-3">Submit</Button>
+            <AuthSubmitBtn />
           </form>
         </CardContent>
       </Card>
