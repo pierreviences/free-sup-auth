@@ -1,7 +1,7 @@
 "use server";
 import { registerValidator } from "@/validations/authSchema";
 import vine, { errors } from "@vinejs/vine";
-export async function registerAction(formdata: FormData) {
+export async function registerAction(prevState: any, formdata: FormData) {
   try {
     const data = {
       name: formdata.get("name"),

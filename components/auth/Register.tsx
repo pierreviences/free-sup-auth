@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -12,65 +13,70 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { registerAction } from "@/actions/authActions";
 import { useFormState } from "react-dom";
-const iniState = {
+const initState = {
   status: 0,
-  error: {},
+  errors: {},
 };
 function Register() {
+  const [state, formAction] = useFormState(registerAction, initState);
   return (
     <div>
       <Card>
         <CardHeader>
           <CardTitle>Register</CardTitle>
           <CardDescription>
-            Welcome back to the freelancers community.
+            Create new account a join new era of chatting .
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-2">
-          <form action={registerAction}>
+          <form action={formAction}>
             <div className="space-y-1">
               <Label htmlFor="name">Name</Label>
               <Input
                 id="name"
                 type="text"
-                placeholder="Type your name here"
                 name="name"
+                placeholder="Enter your name."
               />
+              <span className="text-red-400">{state?.errors?.name}</span>
             </div>
             <div className="space-y-1">
               <Label htmlFor="username">Username</Label>
               <Input
                 id="username"
                 type="text"
-                placeholder="Type your username here"
                 name="username"
+                placeholder="Enter your username."
               />
+              <span className="text-red-400">{state?.errors?.username}</span>
             </div>
             <div className="space-y-1">
               <Label htmlFor="email">Email</Label>
               <Input
                 id="email"
                 type="email"
-                placeholder="Type your email here"
                 name="email"
+                placeholder="Enter your email."
               />
+              <span className="text-red-400">{state?.errors?.email}</span>
             </div>
             <div className="space-y-1">
               <Label htmlFor="password">Password</Label>
               <Input
                 id="password"
                 type="password"
-                placeholder="Type your password here"
                 name="password"
+                placeholder="Enter your password."
               />
+              <span className="text-red-400">{state?.errors?.password}</span>
             </div>
             <div className="space-y-1">
               <Label htmlFor="cpassword">Confirm Password</Label>
               <Input
                 id="cpassword"
-                type="cpassword"
-                placeholder="Confirm Password"
+                type="password"
                 name="password_confirmation"
+                placeholder="Confirm your password."
               />
             </div>
             <Button className="w-full mt-3">Submit</Button>
